@@ -10,5 +10,6 @@ const postController = require('../controllers/postController.js')
 
 router.get('/', postController.index)
 router.get('/:slug', postController.show)
+router.post('/:slug', postController.store)
 
 module.exports = router

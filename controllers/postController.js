@@ -1,8 +1,10 @@
 const post = require('../data/db.js')
+const fs = require('fs');
+const { post } = require('../routers/posts.js');
 
-function index(req,res){
+function index(req, res) {
     const markup = `
-        ${post.map(post=> `
+        ${post.map(post => `
             <ul>
             <li>${post.title}</li>
             <li>${post.slug}</li>
@@ -11,17 +13,33 @@ function index(req,res){
             <li>${post.tags}</li>
             </ul>
              `
-        ).join('')}
+    ).join('')}
     `;
-  res.send(markup) 
- /*  res.json(markup) */
+    res.send(markup)
+    /*  res.json(markup) */
 }
 
-function show (req,res){
+function show(req, res) {
     res.json(post)
 }
 
+
+function store(req, res) {
+    const post = {
+        id: post[post.length -1].id + 1,
+        ...req.body
+    }
+    
+    fs.writeFileSync('./data/db.js', `module.exports = ${JSON.stringify(post,null,4)} `)
+
+    res.json({
+        Post: post
+    })
+}
+
+
 module.exports = {
     index,
-    show
+    show,
+    store
 }

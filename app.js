@@ -3,6 +3,9 @@ const app = express()
 
 const PostRouter = require('./routers/posts.js')
 
+app.use(express.json())
+
+
 
 app.listen(3002, (req,res)=>{
     console.log(`server is running at http://localhost:3002`);
