@@ -1,6 +1,5 @@
 const post = require('../data/db.js')
-const fs = require('fs');
-const { post } = require('../routers/posts.js');
+const fs = require('fs')
 
 function index(req, res) {
     const markup = `
@@ -23,20 +22,19 @@ function show(req, res) {
     res.json(post)
 }
 
-
 function store(req, res) {
-    const post = {
-        id: post[post.length -1].id + 1,
+    const newPost = { 
         ...req.body
-    }
-    
-    fs.writeFileSync('./data/db.js', `module.exports = ${JSON.stringify(post,null,4)} `)
+    };
+
+    post.push(newPost);
+
+    fs.writeFileSync('./data/db.js', `module.exports = ${JSON.stringify(post, null, 4)};`);
 
     res.json({
-        Post: post
-    })
+        Post: newPost
+    });
 }
-
 
 module.exports = {
     index,
