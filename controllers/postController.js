@@ -1,9 +1,13 @@
 const post = require('../data/db.js')
 
 function index(req,res){
-    res.json({
-        post: post
-    })
+  const markup = `
+  <div>${post.title}</div>
+  `;
+  /* res.send(markup) */
+  res.json(markup)
+
+
 }
 
 module.exports = {

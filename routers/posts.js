@@ -8,8 +8,6 @@ const router = express.Router()
 const postController = require('../controllers/postController.js')
 
 
-router.get('/', (req,res)=>{
-  res.json(postController.index).send
-})
+router.get('/', postController.index)
 
 module.exports = router
