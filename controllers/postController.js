@@ -11,14 +11,17 @@ function index(req,res){
             <li>${post.tags}</li>
             </ul>
              `
-        )}
+        ).join('')}
     `;
-  /* res.send(markup) */
-  res.send(markup)
+  res.send(markup) 
+ /*  res.json(markup) */
+}
 
-
+function show (req,res){
+    res.json(post)
 }
 
 module.exports = {
-    index
+    index,
+    show
 }
