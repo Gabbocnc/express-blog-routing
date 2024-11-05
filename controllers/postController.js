@@ -1,6 +1,6 @@
 const post = require('../data/db.js')
 const fs = require('fs')
-
+/* 
 function index(req, res) {
     const markup = `
         ${post.map(post => `
@@ -16,7 +16,9 @@ function index(req, res) {
     `;
     res.send(markup)
     /*  res.json(markup) */
-}
+
+
+
 
 function show(req, res) {
     res.json(post)
@@ -37,7 +39,7 @@ function store(req, res) {
 }
 
 module.exports = {
-    index,
+    /* index, */
     show,
     store
 }

@@ -6,9 +6,13 @@ const express = require('express')
 const router = express.Router()
 //import controller
 const postController = require('../controllers/postController.js')
+const post = require('../data/db.js')
 
-
-router.get('/', postController.index)
+/* 
+router.get('/', postController.index) */
+router.get('/',(req,res)=>{
+    res.json(post)
+})
 router.get('/:slug', postController.show)
 router.post('/:slug', postController.store)
 
