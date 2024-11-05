@@ -8,7 +8,7 @@ function index(req, res) {
             <li>${post.title}</li>
             <li>${post.slug}</li>
             <li>${post.content}</li>
-            <li>${post.image}</li>
+            <li><img src="${post.image}" alt="" style="width:400px;"></li>
             <li>${post.tags}</li>
             </ul>
              `

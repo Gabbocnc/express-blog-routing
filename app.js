@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-
+app.use(express.static('public'));
 const PostRouter = require('./routers/posts.js')
 
 app.use(express.json())
